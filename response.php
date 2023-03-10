@@ -75,11 +75,11 @@ if ($action == 'email_invoice'){
 	$mail->AddAddress($emailId, "");
 
 	// Determine subject line based on invoice type
-	if ($row['invoice_type'] == 'billing') {
+	if ($invoice_type == 'billing') {
 		$subject = "Billing for Order #" . $row['invoice'];
-	} else if($row['invoice_type'] == 'quote') {
+	} else if($invoice_type == 'quote') {
 		$subject = "Quote for Order #" . $row['invoice'];
-	}else if($row['invoice_type'] == 'receipt') {
+	}else if($invoice_type == 'receipt') {
 		$subject = "Receipt for Order #" . $row['invoice'];
 	}else {
 		$subject = "Invoice for Order #" . $row['invoice'];
@@ -126,6 +126,7 @@ if ($action == 'email_invoice'){
 	}
 
 
+}
 }
 // download invoice csv sheet
 if ($action == 'download_csv'){
