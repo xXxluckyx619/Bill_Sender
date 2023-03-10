@@ -29,20 +29,20 @@ define('EMAIL_USERNAME', 'ravtechtesting@gmail.com');
 define('EMAIL_PASSWORD', 'izgtwjatvmtigwdw');
 define('EMAIL_FROM', 'ravtechtesting@gmail.com');
 define('EMAIL_NAME', 'RavTechnologies');
-define('EMAIL_SUBJECT', 'Invoice Reminder');
+define('EMAIL_SUBJECT', 'Payment Reminder');
 define('EMAIL_BODY_INVOICE', 'Thank you for your business! Please find your invoice attached.');
-define('EMAIL_BODY_BILLING', 'Thank you for your business! Please find your Billing attached.');
+define('EMAIL_BODY_BILLING','Thank you for considering our services! Please find your bill attached.');
 define('EMAIL_BODY_QUOTE', 'Thank you for considering our services! Please find your quote attached.');
 define('EMAIL_BODY_RECEIPT', 'Thank you for your payment! Please find your receipt attached.');
 
 
 // EMAIL DETAILS
-define('EMAIL_FROM', 'sales@inms.ccc'); // Email address invoice emails will be sent from
-define('EMAIL_NAME', 'Invoice Mg System'); // Email from address
-define('EMAIL_SUBJECT', 'Invoice default email subject'); // Invoice email subject
-define('EMAIL_BODY_INVOICE', 'Invoice default body'); // Invoice email body
-define('EMAIL_BODY_QUOTE', 'Quote default body'); // Invoice email body
-define('EMAIL_BODY_RECEIPT', 'Receipt default body'); // Invoice email body
+// define('EMAIL_FROM', 'sales@inms.ccc'); // Email address invoice emails will be sent from
+// define('EMAIL_NAME', 'Invoice Mg System'); // Email from address
+// define('EMAIL_SUBJECT', 'Invoice default email subject'); // Invoice email subject
+// define('EMAIL_BODY_INVOICE', 'Invoice default body'); // Invoice email body
+// define('EMAIL_BODY_QUOTE', 'Quote default body'); // Invoice email body
+// define('EMAIL_BODY_RECEIPT', 'Receipt default body'); // Invoice email body
 
 // OTHER SETTINFS
 define('INVOICE_PREFIX', 'B'); // Prefix at start of invoice - leave empty '' for no prefix
@@ -55,8 +55,8 @@ define('ENABLE_VAT', true); // Enable TAX/VAT
 define('VAT_INCLUDED', false); // Is VAT included or excluded?
 define('VAT_RATE', '12'); // This is the percentage value
 
-define('PAYMENT_DETAILS', 'Invoice Mg System.<br>Sort Code: 00-00-00<br>Account Number: 12345678'); // Payment information
-define('FOOTER_NOTE', 'Invoice Management System');
+define('PAYMENT_DETAILS', 'Rav Technologies Bank.<br>Sort Code: 00-00-00<br>Account Number: 12345678'); // Payment information
+define('FOOTER_NOTE', 'Billing System by RavTechnologies');
 
 // CONNECT TO THE DATABASE
 $mysqli = new mysqli(DATABASE_HOST, DATABASE_USER, DATABASE_PASS, DATABASE_NAME);

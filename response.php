@@ -15,10 +15,47 @@ $action = isset($_POST['action']) ? $_POST['action'] : "";
 
 if ($action == 'email_invoice'){
 
+	$invoice_id = $_POST['invoice'];
 	$fileId = $_POST['id'];
 	$emailId = $_POST['email'];
 	$invoice_type = $_POST['invoice_type'];
 	$custom_email = $_POST['custom_email'];
+
+	// Retrieve customer name and email
+    $stmt = $pdo->prepare("SELECT name, email FROM customers WHERE id = ?");
+    $stmt->execute([$row['name']]);
+    $customer = $stmt->fetch();
+
+	// Retrieve invoice details
+    $stmt = $pdo->prepare("SELECT * FROM invoice WHERE id = ?");
+    $stmt->execute([$invoice_id]);
+    $row = $stmt->fetch();
+
+	// Schedule the sending of email before the invoice due date
+	$invoice_due_date = strtotime($row["invoice_due_date"]);
+	$days_left = round(($invoice_due_date - time()) / (60 * 60 * 24));
+	$send_date = date('Y-m-d', strtotime("-2 days", $invoice_due_date));
+
+
+	 // Update the invoice record with the send date
+	 $query = "UPDATE invoices SET invoice_send_date = '$send_date' WHERE invoice_id = '$invoice_id'";
+	 $result = mysqli_query($conn, $query);
+	 if (!$result) {
+	   die("Query Failed." . mysqli_error($conn));
+	 }
+
+
+	   // Display the countdown
+	   echo "Email will be sent on " . date('M d, Y', strtotime($send_date)) . ", " . $days_left . " days left until the invoice is due.";
+	 
+	// Send the email
+	$to_email = $row['customer_email'];
+	$subject = "Invoice for Order #" . $row['order_id'];
+	$message = "Dear " . $row['customer_name'] . ",\n\nPlease find attached the invoice for your order #" . $row['order_id'] . ".\n\nThank you for your business!";
+	$file_path = "invoices/" . $row['invoice_file'];
+
+	send_email($to_email, $subject, $message, $file_path);
+
 
 	require_once('class.phpmailer.php');
 	require_once('config.php');
@@ -37,7 +74,18 @@ if ($action == 'email_invoice'){
 	$mail->SetFrom(EMAIL_FROM, EMAIL_NAME);
 	$mail->AddAddress($emailId, "");
 
-	$mail->Subject = EMAIL_SUBJECT;
+	// Determine subject line based on invoice type
+	if ($row['invoice_type'] == 'billing') {
+		$subject = "Billing for Order #" . $row['invoice'];
+	} else if($row['invoice_type'] == 'quote') {
+		$subject = "Quote for Order #" . $row['invoice'];
+	}else if($row['invoice_type'] == 'receipt') {
+		$subject = "Receipt for Order #" . $row['invoice'];
+	}else {
+		$subject = "Invoice for Order #" . $row['invoice'];
+	}
+
+	$mail->Subject = $subject;
 	//$mail->AltBody = EMAIL_BODY; // optional, comment out and test
 	if (empty($custom_email)){
 		if($invoice_type == 'invoice'){
@@ -52,22 +100,31 @@ if ($action == 'email_invoice'){
 	} else {
 		$mail->MsgHTML($custom_email);
 	}
+	// Construct email message
+	$message = "Dear " . $row['customer_name'] . ",\n\n";
+	$message .= "Please find attached your invoice for Order #" . $row['invoice'] . ".\n\n";
+	$message .= "Thank you for your business!\n\n";
+	$message .= "Best regards,\n";
+	$message .= "RavTechnologies";
 
 	$mail->AddAttachment("./invoices/".$fileId.".pdf"); // attachment
 
-	if(!$mail->Send()) {
-		 //if unable to create new record
-	    echo json_encode(array(
-	    	'status' => 'Error',
-	    	//'message'=> 'There has been an error, please try again.'
-	    	'message' => 'There has been an error, please try again.<pre>'.$mail->ErrorInfo.'</pre>'
-	    ));
+	// Send email
+	$mail->setFrom(EMAIL_ADDRESS, EMAIL_NAME);
+	$mail->addAddress($recipient_email);
+	$mail->Subject = $subject;
+	$mail->Body = $message;
+	if (!$mail->send()) {
+	echo "Email sending failed. " . $mail->ErrorInfo;
 	} else {
-	   echo json_encode(array(
-			'status' => 'Success',
-			'message'=> 'Invoice has been successfully send to the customer'
-		));
+	// Email sent successfully, update invoice status in the database
+	$result = mysqli_query($conn, "UPDATE invoices SET invoice_status='sent' WHERE invoice_id='$invoice_id'");
+	if (!$result) {
+		echo "Invoice status update failed. Error: " . mysqli_error($conn);
+	} else {
+		echo "Invoice sent successfully!";
 	}
+
 
 }
 // download invoice csv sheet
