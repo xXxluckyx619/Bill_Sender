@@ -31,7 +31,7 @@ if ($action == 'email_invoice'){
 	$mail->Password = EMAIL_PASSWORD;
 	$mail->SMTPSecure = 'tls';
 
-	$mail = new PHPMailer(); // defaults to using php "mail()"
+	// $mail = new PHPMailer(); // defaults to using php "mail()"
 
 	$mail->AddReplyTo(EMAIL_FROM, EMAIL_NAME);
 	$mail->SetFrom(EMAIL_FROM, EMAIL_NAME);
