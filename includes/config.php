@@ -22,6 +22,19 @@ define('COMPANY_POSTCODE','3100');
 define('COMPANY_NUMBER','Company No: 699400000'); // Company registration number
 define('COMPANY_VAT', 'Company VAT: 690000007'); // Company TAX/VAT number
 
+//Email configuration for SMTP
+define('EMAIL_HOST', 'smtp.gmail.com');
+define('EMAIL_PORT', '587');
+define('EMAIL_USERNAME', 'ravtechtesting@gmail.com');
+define('EMAIL_PASSWORD', 'izgtwjatvmtigwdw');
+define('EMAIL_FROM', 'ravtechtesting@gmail.com');
+define('EMAIL_NAME', 'RavTechnologies');
+define('EMAIL_SUBJECT', 'Invoice Reminder');
+define('EMAIL_BODY_INVOICE', 'Thank you for your business! Please find your invoice attached.');
+define('EMAIL_BODY_QUOTE', 'Thank you for considering our services! Please find your quote attached.');
+define('EMAIL_BODY_RECEIPT', 'Thank you for your payment! Please find your receipt attached.');
+
+
 // EMAIL DETAILS
 define('EMAIL_FROM', 'sales@inms.ccc'); // Email address invoice emails will be sent from
 define('EMAIL_NAME', 'Invoice Mg System'); // Email from address

@@ -2,7 +2,6 @@
 
 
 include_once('includes/config.php');
-
 // show PHP errors
 ini_set('display_errors', 1);
 
@@ -22,6 +21,15 @@ if ($action == 'email_invoice'){
 	$custom_email = $_POST['custom_email'];
 
 	require_once('class.phpmailer.php');
+	require_once('config.php');
+	// SMTP configuration
+	$mail->isSMTP();
+	$mail->Host = EMAIL_HOST;
+	$mail->Port = EMAIL_PORT;
+	$mail->SMTPAuth = true;
+	$mail->Username = EMAIL_USERNAME;
+	$mail->Password = EMAIL_PASSWORD;
+	$mail->SMTPSecure = 'tls';
 
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 

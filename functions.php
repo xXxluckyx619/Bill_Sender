@@ -37,6 +37,7 @@ function getInvoices() {
 				<th>Type</th>
 				<th>Status</th>
 				<th>Actions</th>
+				<th>Schedule</th>
 				
 
 			  </tr></thead><tbody>';
@@ -50,6 +51,7 @@ function getInvoices() {
 				    <td>'.$row["invoice_date"].'</td>
 				    <td>'.$row["invoice_due_date"].'</td>
 				    <td>'.$row["invoice_type"].'</td>
+					
 					
 				';
 
