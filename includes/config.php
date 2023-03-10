@@ -31,6 +31,7 @@ define('EMAIL_FROM', 'ravtechtesting@gmail.com');
 define('EMAIL_NAME', 'RavTechnologies');
 define('EMAIL_SUBJECT', 'Invoice Reminder');
 define('EMAIL_BODY_INVOICE', 'Thank you for your business! Please find your invoice attached.');
+define('EMAIL_BODY_BILLING', 'Thank you for your business! Please find your Billing attached.');
 define('EMAIL_BODY_QUOTE', 'Thank you for considering our services! Please find your quote attached.');
 define('EMAIL_BODY_RECEIPT', 'Thank you for your payment! Please find your receipt attached.');
 

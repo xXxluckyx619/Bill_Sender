@@ -46,6 +46,8 @@ if ($action == 'email_invoice'){
 			$mail->MsgHTML(EMAIL_BODY_QUOTE);
 		} else if($invoice_type == 'receipt'){
 			$mail->MsgHTML(EMAIL_BODY_RECEIPT);
+		}else if($invoice_type == 'billing'){
+			$mail->MsgHTML(EMAIL_BODY_BILLING);
 		}
 	} else {
 		$mail->MsgHTML($custom_email);
