@@ -57,9 +57,11 @@ if ($action == 'email_invoice'){
 	send_email($to_email, $subject, $message, $file_path);
 
 
-	require_once('class.phpmailer.php');
+	require 'PHPMailer/PHPMailer.php';
+	require 'PHPMailer/SMTP.php';
 	require_once('config.php');
 	// SMTP configuration
+	$mail = new PHPMailer\PHPMailer\PHPMailer();
 	$mail->isSMTP();
 	$mail->Host = EMAIL_HOST;
 	$mail->Port = EMAIL_PORT;
@@ -73,6 +75,8 @@ if ($action == 'email_invoice'){
 	$mail->AddReplyTo(EMAIL_FROM, EMAIL_NAME);
 	$mail->SetFrom(EMAIL_FROM, EMAIL_NAME);
 	$mail->AddAddress($emailId, "");
+	$mail->isHTML(true);
+
 
 	// Determine subject line based on invoice type
 	if ($invoice_type == 'billing') {
@@ -114,9 +118,15 @@ if ($action == 'email_invoice'){
 	$mail->addAddress($recipient_email);
 	$mail->Subject = $subject;
 	$mail->Body = $message;
+
 	if (!$mail->send()) {
-	echo "Email sending failed. " . $mail->ErrorInfo;
+		$response['status'] = 'error';
+		$response['message'] = 'Email sending failed. Error: ' . $mail->ErrorInfo;	
+	echo "Email sending failed. ";
 	} else {
+		$response['status'] = 'success';
+   		$response['message'] = 'Email sent successfully.';
+		   echo "Email sent successfully.";
 	// Email sent successfully, update invoice status in the database
 	$result = mysqli_query($conn, "UPDATE invoices SET invoice_status='sent' WHERE invoice_id='$invoice_id'");
 	if (!$result) {
@@ -124,9 +134,7 @@ if ($action == 'email_invoice'){
 	} else {
 		echo "Invoice sent successfully!";
 	}
-
-
-}
+	}
 }
 // download invoice csv sheet
 if ($action == 'download_csv'){

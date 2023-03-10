@@ -95,6 +95,7 @@ $mysqli->close();
 						</div>
 						<div class="col-xs-3">
 							<select name="invoice_type" id="invoice_type" class="form-control">
+							<option value="invoice" <?php if($invoice_type === 'billing'){?>selected<?php } ?>>billing</option>
 								<option value="invoice" <?php if($invoice_type === 'invoice'){?>selected<?php } ?>>Invoice</option>
 								<option value="quote" <?php if($invoice_type === 'quote'){?>selected<?php } ?>>Quote</option>
 								<option value="receipt" <?php if($invoice_type === 'receipt'){?>selected<?php } ?>>Receipt</option>
