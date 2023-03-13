@@ -4,7 +4,7 @@ ini_set('error_reporting', E_ALL);
 
 // DATABASE INFORMATION
 define('DATABASE_HOST', getenv('IP'));
-define('DATABASE_NAME', 'Bill_sender');
+define('DATABASE_NAME', 'bill_sender');
 define('DATABASE_USER', 'root');
 define('DATABASE_PASS', '');
 
@@ -12,7 +12,7 @@ define('DATABASE_PASS', '');
 define('COMPANY_LOGO', 'images/logo.png');
 define('COMPANY_LOGO_WIDTH', '300');
 define('COMPANY_LOGO_HEIGHT', '90');
-define('COMPANY_NAME','Bill Sender');
+define('COMPANY_NAME','RavTechnologies');
 define('COMPANY_ADDRESS_1','713 G. Villasan bldg.');
 define('COMPANY_ADDRESS_2','Burgos St. Sangitan East, Cabanatuan City');
 define('COMPANY_ADDRESS_3','Nueva Ecija');
@@ -36,13 +36,7 @@ define('EMAIL_BODY_QUOTE', 'Thank you for considering our services! Please find 
 define('EMAIL_BODY_RECEIPT', 'Thank you for your payment! Please find your receipt attached.');
 
 
-// EMAIL DETAILS
-// define('EMAIL_FROM', 'sales@inms.ccc'); // Email address invoice emails will be sent from
-// define('EMAIL_NAME', 'Invoice Mg System'); // Email from address
-// define('EMAIL_SUBJECT', 'Invoice default email subject'); // Invoice email subject
-// define('EMAIL_BODY_INVOICE', 'Invoice default body'); // Invoice email body
-// define('EMAIL_BODY_QUOTE', 'Quote default body'); // Invoice email body
-// define('EMAIL_BODY_RECEIPT', 'Receipt default body'); // Invoice email body
+
 
 // OTHER SETTINFS
 define('INVOICE_PREFIX', 'B'); // Prefix at start of invoice - leave empty '' for no prefix
