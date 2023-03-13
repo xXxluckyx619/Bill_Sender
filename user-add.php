@@ -24,22 +24,22 @@ include('header.php');
 
 					<div class="row">
 						<div class="col-xs-4">
-							<input type="text" class="form-control margin-bottom required" name="name" placeholder="Name">
+							<input type="text" class="form-control margin-bottom required" name="name" placeholder="Name" required>
 						</div>
 						<div class="col-xs-4">
-							<input type="text" class="form-control margin-bottom required" name="username" placeholder="Enter username">
+							<input type="text" class="form-control margin-bottom required" name="username" placeholder="Enter username" required>
 						</div>
 						<div class="col-xs-4">
-							<input type="text" class="form-control margin-bottom required" name="email" placeholder="Enter user's email address">
+							<input type="email" class="form-control margin-bottom required" name="email" placeholder="Enter user's email address" required>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-xs-4">
-							<input type="text" class="form-control" name="phone" placeholder="Enter user's phone number">
+							<input type="number" class="form-control" name="phone" placeholder="Enter user's phone number" required>
 						</div>
 						<div class="col-xs-4">
-							<input type="password" class="form-control required" name="password" id="password" placeholder="Enter user's password">
+							<input type="password" class="form-control required" name="password" id="password" placeholder="Enter user's password" required>
 						</div>
 					</div>
 
