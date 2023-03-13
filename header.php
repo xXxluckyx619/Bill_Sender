@@ -6,14 +6,17 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Billing Management System</title>
   <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1,">
+
  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -21,12 +24,12 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="css/AdminLTE.css">
  
-  <link rel="stylesheet" href="css/skin-green.css">
+  <link rel="stylesheet" href="css/skin-green.css" type="text/css">
   <link rel="stylesheet" href="css/skin-purple.css">
   <link rel="stylesheet" href="css/skin-blue.css">
   
   	<!-- JS -->
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="js/moment.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>

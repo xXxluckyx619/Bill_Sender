@@ -153,7 +153,7 @@ function popProductsList() {
 	$results = $mysqli->query($query);
 
 	if($results) {
-		echo '<select class="form-control item-select">';
+		echo '<select title="Please choose a product" class="form-control item-select">';
 		while($row = $results->fetch_assoc()) {
 
 		    print '<option value="'.$row['product_price'].'">'.$row["product_name"].' - '.$row["product_desc"].'</option>';
@@ -264,7 +264,7 @@ function getProducts() {
 			    <tr>
 					<td>'.$row["product_name"].'</td>
 				    <td>'.$row["product_desc"].'</td>
-				    <td>$'.$row["product_price"].'</td>
+				    <td>₱'.$row["product_price"].'</td>
 				    <td><a href="product-edit.php?id='.$row["product_id"].'" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> <a data-product-id="'.$row['product_id'].'" class="btn btn-danger btn-xs delete-product"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
 			    </tr>
 		    ';

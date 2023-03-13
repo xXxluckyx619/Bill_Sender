@@ -589,14 +589,17 @@ $(document).ready(function() {
    	}
 
    	function emailInvoice(invoiceId) {
+		// get the form data
+		var form = $('#email_invoice_form_' + invoice_id);
+		var formData = form.serialize(); // serialize the form data
 
         jQuery.ajax({
 
         	url: 'response.php',
             type: 'POST', 
-            data: invoiceId,
+			data: formData,
             dataType: 'json', 
-            success: function(data){
+            success: function(response){
 				$("#response .message").html("<strong>" + data.status + "</strong>: " + data.message);
 				$("#response").removeClass("alert-warning").addClass("alert-success").fadeIn();
 				$("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);

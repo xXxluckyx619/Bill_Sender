@@ -26,6 +26,7 @@ include('functions.php');
 							<h2 class="">Select Type:</h2>
 						</div>
 						<div class="col-xs-3">
+							<label for="invoice_type">Invoice Type:</label>
 							<select name="invoice_type" id="invoice_type" class="form-control">
 								<option value="billing" selected>Billing</option>
 								<option value="invoice" selected>Invoice</option>
@@ -34,6 +35,7 @@ include('functions.php');
 							</select>
 						</div>
 						<div class="col-xs-3">
+							<label for="invoice_status">Invoice status:</label>
 							<select name="invoice_status" id="invoice_status" class="form-control">
 								<option value="open" selected>Open</option>
 								<option value="paid">Paid</option>
@@ -148,7 +150,7 @@ include('functions.php');
 				<thead>
 					<tr>
 						<th width="500">
-							<h4><a href="#" class="btn btn-success btn-xs add-row"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> Product</h4>
+							<h4><a href="#" title="Add a new row" class="btn btn-success btn-xs add-row"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> Product</h4>
 						</th>
 						<th>
 							<h4>Qty</h4>
@@ -168,14 +170,17 @@ include('functions.php');
 					<tr>
 						<td>
 							<div class="form-group form-group-sm  no-margin-bottom">
-								<a href="#" class="btn btn-danger btn-xs delete-row"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-								<input type="text" class="form-control form-group-sm item-input invoice_product" name="invoice_product[]" placeholder="Enter Product Name OR Description">
-								<p class="item-select">or <a href="#">select a product</a></p>
+							<a href="#" title="Delete this row" class="btn btn-danger btn-xs delete-row"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+							<input type="text" class="form-control form-group-sm item-input invoice_product" name="invoice_product[]" placeholder="Enter Product Name OR Description">
+							<label for="item-select" class="item-select" title="Select a product from the dropdown or enter a product name">
+									or <a href="#">select a product</a>
+								</label>
 							</div>
 						</td>
 						<td class="text-right">
 							<div class="form-group form-group-sm no-margin-bottom">
-								<input type="number" class="form-control invoice_product_qty calculate" name="invoice_product_qty[]" value="1">
+								<label for="invoice_product_qty" title="Enter the quantity of the product">Quantity</label>
+								<input type="number" class="form-control invoice_product_qty calculate" name="invoice_product_qty[]" id="invoice_product_qty" value="1">
 							</div>
 						</td>
 						<td class="text-right">
@@ -192,7 +197,7 @@ include('functions.php');
 						<td class="text-right">
 							<div class="input-group input-group-sm">
 								<span class="input-group-addon"><?php echo CURRENCY ?></span>
-								<input type="text" class="form-control calculate-sub" name="invoice_product_sub[]" id="invoice_product_sub" value="0.00" aria-describedby="sizing-addon1" disabled>
+								<input type="text" class="form-control calculate-sub" name="invoice_product_sub[]" id="invoice_product_sub" value="0.00" aria-describedby="sizing-addon1" disabled="" title="Product Subtotal" placeholder="Enter product subtotal">
 							</div>
 						</td>
 					</tr>
@@ -241,7 +246,8 @@ include('functions.php');
 					<?php if (ENABLE_VAT == true) { ?>
 					<div class="row">
 						<div class="col-xs-4 col-xs-offset-5">
-							<strong>TAX/VAT:</strong><br>Remove TAX/VAT <input type="checkbox" class="remove_vat">
+							<label for="remove_vat">Remove VAT</label>
+							<input type="checkbox" class="remove_vat" id="remove_vat" name="remove_vat" title="Remove VAT">
 						</div>
 						<div class="col-xs-3">
 							<?php echo CURRENCY ?><span class="invoice-vat" data-enable-vat="<?php echo ENABLE_VAT ?>" data-vat-rate="<?php echo VAT_RATE ?>" data-vat-method="<?php echo VAT_INCLUDED ?>">0.00</span>
@@ -276,7 +282,7 @@ include('functions.php');
 			</div>
 		</form>
 
-		<div id="insert" class="modal fade">
+		<div id="insert" class="modal fade" aria-modal="true" tabindex="-1">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
