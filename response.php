@@ -422,16 +422,12 @@ if ($action == 'create_invoice'){
 	// execute the query
 	if($mysqli -> multi_query($query)){
 		if ($mysqli->error) {
-			echo json_encode(array('status' => 'error', 'message' => $mysqli->error));
-		} else {
-			echo json_encode(array('status' => 'success', 'message' => 'Invoice created successfully.'));
-		}
-		
-		//if saving success
-		echo json_encode(array(
-			'status',
-			'message'
-		));
+			$response = array('status' => 'error', 'message' => $mysqli->error);
+		 } else {
+			$response = array('status' => 'success', 'message' => 'Invoice created successfully.');
+		 }
+		 
+		 echo json_encode($response);
 
 		//Set default date timezone
 		date_default_timezone_set(TIMEZONE);

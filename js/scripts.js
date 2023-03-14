@@ -489,6 +489,10 @@ $(document).ready(function() {
 				dataType: 'json',
 				success: function(data){
 					console.log(data); // add this line to log the data object
+					var responseData = JSON.parse(data.responseText);
+					console.log(responseData.status); // log the status property
+					console.log(responseData.message); // log the message property
+					console.log(xhr.responseText);
 					$("#response .message").html("<strong>" + data.status + "</strong>: " + data.message);
 					$("#response").removeClass("alert-warning").addClass("alert-success").fadeIn();
 					$("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);
@@ -498,6 +502,7 @@ $(document).ready(function() {
 				},
 				error: function (xhr, status, error) {
 					console.log(xhr); // add this line to log the xhr object
+					console.log(xhr.responseText);
 					$("#response .message").html(
 					  "<strong>" + xhr.status + "</strong>: " + error
 					);

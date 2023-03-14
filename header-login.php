@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Billing Management System</title>
+	<title>Invoice Management System</title>
 
 	<!-- JS -->
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="js/moment.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>

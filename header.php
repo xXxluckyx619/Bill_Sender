@@ -9,14 +9,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Billing Management System</title>
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+  <title>Invoice Management System</title>
   <!-- Tell the browser to be responsive to screen width -->
-  <!-- <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1,">
-
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
  
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -24,12 +21,15 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="css/AdminLTE.css">
  
-  <link rel="stylesheet" href="css/skin-green.css" type="text/css">
-  <link rel="stylesheet" href="css/skin-purple.css">
+  <link rel="stylesheet" href="css/skin-green.css">
   <link rel="stylesheet" href="css/skin-blue.css">
+  <link rel="stylesheet" href="css/skin-purple.css">
   
   	<!-- JS -->
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://localhost/Bill_sender/js/bootstrap.min.js.map"></script>
 	<script src="js/moment.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
@@ -59,9 +59,9 @@
      <!--Logo -->
     <a href="" class="logo">
        <!--mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>BL</b>MS</span>
+      <span class="logo-mini"><b>IN</b>MS</span>
        <!--logo for regular state and mobile devices -->
-      <span style="text-decoration:none;" class="logo-lg"><b>Billing</b> System</span>
+      <span style="text-decoration:none;" class="logo-lg"><b>Invoice</b> System</span>
     </a>
 
     <!-- Header Navbar -->

@@ -10,10 +10,10 @@
 	<title>Invoice Manager</title>
 
 	<!-- JS -->
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="js/moment.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+	<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
 	<script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 	<script src="js/bootstrap.datetime.js"></script>
 	<script src="js/bootstrap.password.js"></script>
